@@ -1,1 +1,1 @@
-web: python3 -m spacy download en_core_web_sm && python3 server.py
+web: python3 -m spacy download en_core_web_sm && gunicorn server:app --timeout 30
