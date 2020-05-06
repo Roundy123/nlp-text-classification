@@ -3,6 +3,7 @@ from flask import request
 import spacy
 import pandas as pd
 # app = Flask(__name__)
+
 app = Flask(__name__, static_folder='./client/named-entity-recognition/build', static_url_path='/')
 
 @app.route('/')
