@@ -1,0 +1,12 @@
+{
+  "name": "spacy-nlp-flask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./client/named-entity-recognition/build/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ./client/named-entity-recognition && npm run build --prefix ./client/named-entity-recognition"
+  },
+  "author": "",
+  "license": "ISC"
+}
