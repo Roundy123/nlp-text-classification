@@ -1,0 +1,1 @@
+web: npm install --prefix ./client/named-entity-recognition && npm run build --prefix ./client/named-entity-recognition && python3 server.py
