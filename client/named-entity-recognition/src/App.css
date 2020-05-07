@@ -1,6 +1,10 @@
 .themed-container {
-  margin: 20px;
-  border: 1px solid black;
-  width: 80vw;
-  height: 60vh;
+  margin: 40px 60px;
+  /* border: 1px solid black; */
+  /* width: 80vw; */
+  /* height: 60vh; */
+}
+
+.input-text {
+  height: 400px;
 }
