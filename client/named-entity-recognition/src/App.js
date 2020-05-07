@@ -11,6 +11,7 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import axios from "axios";
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +19,24 @@ class App extends React.Component {
 
     this.state = {
       text: "",
+      apiOutput: {},
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(this.state.text);
+    axios
+      .post("/data", {
+        text: this.state.text,
+      })
+      .then((res) => {
+        console.log(res.data.count);
+        this.setState({ apiOutput: res.data.count });
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -27,7 +45,7 @@ class App extends React.Component {
         <Container className="themed-container" fluid={true}>
           <Row>
             <Col xs="4">
-              <Form>
+              <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
                   <Label>Add text below</Label>
                   <Input
@@ -37,10 +55,15 @@ class App extends React.Component {
                     onChange={(e) => this.setState({ text: e.target.value })}
                   ></Input>
                 </FormGroup>
-                <Button color="danger">Button</Button>
+                <Button color="danger" type="submit">
+                  Button
+                </Button>
               </Form>
             </Col>
-            <Col xs="8">second</Col>
+            <Col xs="8">
+              second
+              {JSON.stringify(this.state.apiOutput)}
+            </Col>
           </Row>
         </Container>
       </div>
