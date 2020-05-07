@@ -16,8 +16,7 @@ def index():
 def hello_world():
     if request.method == 'POST':
         nlp = spacy.load('en_core_web_sm')
-        doc = nlp(str(request.get_data()))
-
+        doc = nlp(request.get_data().decode("utf-8"))
         df = pd.DataFrame(columns=['type','count'])
 
         for ent in doc.ents:
